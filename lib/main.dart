@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:test_one/pages/listview.dart';
 import 'package:test_one/pages/page_first.dart';
 
+
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,10 +14,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       routes: {
-        '/': (context) => const WindowRegistrtion(),
-        '/todo': (context) => const NewWindow(),
+        '/': (context) => const NewWindow (),
+        '/todo': (context) => const WindowRegistrtion(),
         '/tolist': (context) => const ViewWatchesState(),
+        '/listProduct':(context)=> const ViewWatchesState(),
+        
       },
     );
   }
@@ -29,6 +37,7 @@ class WindowRegistrtion extends StatefulWidget {
 }
 
 class _WindowRegistrtionState extends State<WindowRegistrtion> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +46,16 @@ class _WindowRegistrtionState extends State<WindowRegistrtion> {
         backgroundColor: Colors.tealAccent,
         title: const Text('Sign in'),
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.pushNamedAndRemoveUntil(
+              context, '/', (route) => false);
+            },
+            icon: const Icon(Icons.auto_awesome_sharp),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -55,7 +74,7 @@ class _WindowRegistrtionState extends State<WindowRegistrtion> {
             ),
             Container(
               width: 380,
-              height: 300,
+              height: 250,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
                   Radius.circular(10),
@@ -64,7 +83,7 @@ class _WindowRegistrtionState extends State<WindowRegistrtion> {
               ),
               padding: const EdgeInsets.only(top: 10),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(13.0),
                 child: Column(
                   children: [
                     TextFormField(
@@ -76,7 +95,12 @@ class _WindowRegistrtionState extends State<WindowRegistrtion> {
                       obscureText: true,
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(top: 42),
+                      padding: EdgeInsets.only(top: 10),
+                    ),
+                    
+                    
+                    const Padding(
+                      padding: EdgeInsets.only(top: 20),
                     ),
                     ElevatedButton(
                       style: ButtonStyle(
@@ -87,7 +111,7 @@ class _WindowRegistrtionState extends State<WindowRegistrtion> {
                       onPressed: () {
                         Navigator.pop(context);
                         Navigator.pushNamedAndRemoveUntil(
-                            context, '/todo', (route) => false);
+                            context, '/listProduct', (route) => false);
                       },
                       child: const Text('Sign in'),
                     ),
