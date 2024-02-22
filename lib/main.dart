@@ -57,70 +57,101 @@ class _WindowRegistrtionState extends State<WindowRegistrtion> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Authorize',
-              style: TextStyle(
-                fontSize: 25,
-                backgroundColor: Colors.teal.withOpacity(0.4),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 15),
-            ),
-            Container(
-              width: 380,
-              height: 250,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
-                ),
-                color: Colors.tealAccent,
-              ),
-              padding: const EdgeInsets.only(top: 10),
-              child: Padding(
-                padding: const EdgeInsets.all(13.0),
-                child: Column(
-                  children: [
-                    TextFormField(
-                      decoration: const InputDecoration(labelText: "Login"),
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    TextFormField(
-                      decoration: const InputDecoration(labelText: "Password"),
-                      obscureText: true,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(top: 10),
-                    ),
-                    
-                    
-                    const Padding(
-                      padding: EdgeInsets.only(top: 20),
-                    ),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all<Size>(
-                          const Size(double.infinity, 50),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 600,
+                      width: 400,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        gradient: const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [Colors.purple, Colors.blue, Colors.green],
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, '/listProduct', (route) => false);
-                      },
-                      child: const Text('Sign in'),
-                    ),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Authorize',
+                        style: TextStyle(
+                          fontSize: 25,
+                          backgroundColor: Colors.teal.withOpacity(0.4),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 15),
+                      ),
+                      Container(
+                        width: 380,
+                        height: 250,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                          color: Colors.tealAccent,
+                        ),
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Padding(
+                          padding: const EdgeInsets.all(13.0),
+                          child: Column(
+                            children: [
+                              TextFormField(
+                                decoration: const InputDecoration(labelText: "Login"),
+                                keyboardType: TextInputType.emailAddress,
+                              ),
+                              TextFormField(
+                                decoration: const InputDecoration(labelText: "Password"),
+                                obscureText: true,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(top: 10),
+                              ),
+                              
+                              
+                              const Padding(
+                                padding: EdgeInsets.only(top: 20),
+                              ),
+                              ElevatedButton(
+                              style: ButtonStyle(
+                                minimumSize: MaterialStateProperty.all<Size>(
+                                  const Size(double.infinity, 50),
+                                ),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.pink),
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context);
+                                Navigator.pushNamedAndRemoveUntil(
+                                    context, '/listProduct', (route) => false);
+                              },
+                              child: const Text(
+                                'Sign in',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
